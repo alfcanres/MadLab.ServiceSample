@@ -133,8 +133,6 @@ public static Todo ToEntity(this TodoCreateDTO dto)
 }
 ```
 
-## 📂 Project Structure
-
 ## 🎓 Learning Path
 
 Follow this order to understand the codebase:
