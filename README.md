@@ -1,47 +1,17 @@
-# MadLab.ServiceSample
+﻿# MadLab.ServiceSample
 
-A .NET 8 demonstration project showcasing **generic service patterns**, **clean architecture**, and **CRUD operations** using Entity Framework Core and SQLite.
+A .NET 8 demonstration project showcasing **generic service patterns**,**template method pattern**, **method extentions**, and how to use it for **CRUD operations** using Entity Framework Core and SQLite.
 
-## ?? Purpose
+## Purpose
 
 This repository serves as an educational template for building scalable, maintainable service layers in .NET applications. It demonstrates how to:
 
 - Eliminate code duplication with **generic base services**
 - Implement the **Template Method Pattern** for flexible entity-DTO mapping
 - Extend base functionality with custom business logic
-- Structure a clean, layered architecture
 - Use the **DTO (Data Transfer Object) pattern** effectively
 
-## ??? Architecture
-
-The solution follows a **3-layer architecture**:
-
-```
-???????????????????????????????????????????
-?   Console Application Layer             ?
-?   (MadLab.ServiceSample.Console)        ?
-???????????????????????????????????????????
-                 ?
-???????????????????????????????????????????
-?   Business Logic Layer (BLL)            ?
-?   (MadLab.ServiceSample.BLL)            ?
-?                                          ?
-?   ??? Services (CategoryService,        ?
-?   ?             TodoService)             ?
-?   ??? DTOs (Create, Read, Update)       ?
-?   ??? Mappers (Extension Methods)       ?
-???????????????????????????????????????????
-                 ?
-???????????????????????????????????????????
-?   Data Access Layer (DAL)               ?
-?   (MadLab.ServiceSample.DAL)            ?
-?                                          ?
-?   ??? Entity Models (Category, Todo)    ?
-?   ??? DbContext (SQLite)                ?
-???????????????????????????????????????????
-```
-
-## ?? Projects
+## 📦 Projects
 
 | Project | Description |
 |---------|-------------|
@@ -49,7 +19,7 @@ The solution follows a **3-layer architecture**:
 | **MadLab.ServiceSample.BLL** | Business logic layer with services, DTOs, and mappers |
 | **MadLab.ServiceSample.DAL** | Data access layer with entities and DbContext |
 
-## ?? Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -77,7 +47,7 @@ The solution follows a **3-layer architecture**:
 
 The SQLite database will be created automatically in your local file system on first run.
 
-## ?? Key Concepts
+## Key Concepts
 
 ### 1. Generic Base Service Pattern
 
@@ -100,10 +70,10 @@ public abstract class BaseService<TEntity, TCreateDTO, TReadDTO, TUpdateDTO>
 ```
 
 **Benefits:**
-- ? Write CRUD logic once, reuse everywhere
-- ? Type-safe generic implementation
-- ? Consistent API across all services
-- ? Easy to maintain and test
+- Write CRUD logic once, reuse everywhere
+- Type-safe generic implementation
+- Consistent API across all services
+- Easy to maintain and test
 
 ### 2. Template Method Pattern
 
@@ -163,60 +133,33 @@ public static Todo ToEntity(this TodoCreateDTO dto)
 }
 ```
 
-## ?? Project Structure
+## 📂 Project Structure
 
-```
-MadLab.ServiceSample/
-??? MadLab.ServiceSample.Console/
-?   ??? Program.cs                    # Application entry point
-??? MadLab.ServiceSample.BLL/
-?   ??? Services/
-?   ?   ??? BaseService.cs           # Generic CRUD base class
-?   ?   ??? CategoryService.cs       # Simple service implementation
-?   ?   ??? TodoService.cs           # Extended service with custom methods
-?   ??? Dto/
-?   ?   ??? Category/
-?   ?   ?   ??? CategoryCreateDTO.cs
-?   ?   ?   ??? CategoryReadDTO.cs
-?   ?   ?   ??? CategoryUpdateDTO.cs
-?   ?   ??? Todo/
-?   ?       ??? TodoCreateDTO.cs
-?   ?       ??? TodoReadDTO.cs
-?   ?       ??? TodoUpdateDTO.cs
-?   ??? Mapper/
-?       ??? DtoExtensionMethods.cs   # Entity-DTO mappings
-??? MadLab.ServiceSample.DAL/
-    ??? Model/
-    ?   ??? Category.cs              # Category entity
-    ?   ??? Todo.cs                  # Todo entity
-    ??? DataBaseContext.cs           # EF Core DbContext
-```
-
-## ?? Learning Path
+## 🎓 Learning Path
 
 Follow this order to understand the codebase:
 
-1. **Start with `BaseService.cs`**
+1. **Start with `MadLab.ServiceSample.Console/Program.cs`**
+   - Read the comments, will take you accross the code base
+   - Run the app, and see the output
+
+2. **Take a look at `MadLab.ServiceSample.BLL/Services/BaseService.cs`**
    - Understand the generic template and CRUD operations
    - Notice the abstract mapping methods
 
-2. **Review `CategoryService.cs`**
+3. **Review `MadLab.ServiceSample.BLL/Services/CategoryService.cs`**
    - See the simplest implementation
    - Observe how mapping methods are implemented
 
-3. **Examine `TodoService.cs`**
+4. **Examine `MadLab.ServiceSample.BLL/Services/TodoService.cs`**
    - See how to add custom methods beyond CRUD
    - Understand `DbSet` exposure for custom queries
 
-4. **Check `DtoExtensionMethods.cs`**
+5. **Check `MadLab.ServiceSample.BLL/Mapper/DtoExtensionMethods.cs`**
    - Understand the mapping strategy
-   - See how extension methods provide clean syntax
+   - See how extension methods provide clean syntax  
 
-5. **Run `Program.cs`**
-   - See everything in action
-   - Observe service usage patterns
-
-## ?? How to Add a New Service
+## How to Add a New Service
 
 1. **Create your entity** in `MadLab.ServiceSample.DAL/Model/`
    ```csharp
@@ -261,22 +204,8 @@ Follow this order to understand the codebase:
    }
    ```
 
-6. **Use your service** in `Program.cs`
 
-## ?? Testing
-
-The `DataBaseContext` supports in-memory databases for unit testing:
-
-```csharp
-var options = new DbContextOptionsBuilder<DataBaseContext>()
-    .UseInMemoryDatabase(databaseName: "TestDb")
-    .Options;
-
-var context = new DataBaseContext(options);
-var service = new TodoService(context);
-```
-
-## ?? Technologies Used
+## Technologies Used
 
 - **.NET 8**: Latest LTS version of .NET
 - **C# 12**: Modern C# language features
@@ -285,14 +214,14 @@ var service = new TodoService(context);
 - **Generic Types**: Type-safe reusable code
 - **LINQ**: Query data in a declarative manner
 
-## ?? Design Patterns
+## Design Patterns
 
 - **Template Method Pattern**: Define algorithm structure, let subclasses implement details
 - **Repository Pattern** (implicit): Data access abstraction through DbContext/DbSet
 - **DTO Pattern**: Separate data contracts from domain models
 - **Dependency Injection**: Constructor-based DI for DbContext
 
-## ?? Contributing
+## Contributing
 
 This is an educational project. Feel free to:
 - Fork the repository
@@ -300,22 +229,10 @@ This is an educational project. Feel free to:
 - Submit pull requests with improvements
 - Report issues
 
-## ?? License
+## 👨‍💻 Author
 
-This project is open source and available for educational purposes.
-
-## ????? Author
-
-**Alfredo Canres**
+**Alfredo Can**
 - GitHub: [@alfcanres](https://github.com/alfcanres)
 
-## ?? Additional Resources
 
-- [Entity Framework Core Documentation](https://docs.microsoft.com/en-us/ef/core/)
-- [Generic Types in C#](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/)
-- [Template Method Pattern](https://refactoring.guru/design-patterns/template-method)
-- [DTO Pattern](https://martinfowler.com/eaaCatalog/dataTransferObject.html)
-
----
-
-**"Feels almost like cheating, right?"** - That's the beauty of generics and template methods! ??
+**"Feels almost like cheating, right?"** - That's the beauty of generics and template methods! 
