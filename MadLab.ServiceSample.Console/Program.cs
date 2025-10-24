@@ -1,8 +1,38 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 using MadLab.ServiceSample.BLL.Dto.Category;
 using MadLab.ServiceSample.BLL.Dto.Todo;
 using MadLab.ServiceSample.BLL.Services;
 using MadLab.ServiceSample.DAL;
+using System.Threading;
+
+/*********************************************************************************/
+//                          MadLab Service Sample 
+// Main idea here is to show how to use and abstract class, generics an extension methods to:
+// - Minimize code duplication
+// - Avoid using AutoMapper or similar libraries
+// - Keep the code simple and easy to understand
+//
+// This repository is a sample .NET 8 solution demonstrating a layered architecture
+// for a simple Todo using Entity Framework Core.It is organized into three main projects:
+//
+//  1.MadLab.ServiceSample.Console
+//     A console application that acts as the entry point and demonstrates
+//     CRUD operations for categories and todos.
+//
+//  2.MadLab.ServiceSample.BLL
+//     The Business Logic Layer (BLL) containing service classes, DTOs, and business logic
+//     for managing categories and todos.
+//
+//  3.MadLab.ServiceSample.DAL
+//     The Data Access Layer (DAL) containing the Entity Framework Core DbContext
+//     and entity models.
+//
+//  
+//                  Go ahead and run this app to see the results
+//
+// Now,to start reviewing this code, go to MadLab.ServiceSample.BLL/BaseService class
+/*********************************************************************************/
+
 
 
 

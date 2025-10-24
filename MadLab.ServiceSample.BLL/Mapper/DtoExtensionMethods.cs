@@ -9,8 +9,21 @@ using System.Threading.Tasks;
 
 namespace MadLab.ServiceSample.BLL.Mapper
 {
+    /// <summary>
+    /// And here we have our extension methods. 
+    /// What this is doing is to extend the existing funtionality of our classes
+    /// so the can do the mapping themselves. If we need a new mapping, we just need
+    /// to add a new mapping in here. However if you are working with a dev team
+    /// may be a good idea to have a different file for every DTO or entity
+    /// 
+    /// 
+    /// Now, let's go to MadLab.ServiceSample.BLL/TodoService class
+    /// </summary>
     public static class DtoExtensionMethods
     {
+        
+        //Todo extension methods
+
         public static Todo ToEntity(this TodoCreateDTO dto)
         {
             return new Todo
