@@ -30,7 +30,9 @@ namespace MadLab.ServiceSample.BLL.Mapper
             {
                 CategoryId = dto.CategoryId,
                 Title = dto.Title,
-                IsCompleted = dto.IsCompleted
+                IsCompleted = dto.IsCompleted,
+                FirstName = dto.FirstName,
+                LastName = dto.LastName
             };
         }
 
@@ -42,6 +44,8 @@ namespace MadLab.ServiceSample.BLL.Mapper
                 CategoryId = entity.CategoryId,
                 Title = entity.Title,
                 IsCompleted = entity.IsCompleted,
+                FirstName = entity.FirstName,
+                LastName = entity.LastName,
                 CategoryName = entity.Category != null ? entity.Category.Name : string.Empty
             };
         }
@@ -51,6 +55,8 @@ namespace MadLab.ServiceSample.BLL.Mapper
             entity.CategoryId = dto.CategoryId;
             entity.Title = dto.Title;
             entity.IsCompleted = dto.IsCompleted;
+            entity.FirstName = dto.FirstName;
+            entity.LastName = dto.LastName;
             return entity;
         }
 

@@ -12,6 +12,8 @@ namespace MadLab.ServiceSample.DAL.Model
         public Category Category { get; set; }
         public int CategoryId { get; set; }
         public string Title { get; set; } = string.Empty;
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
         public bool IsCompleted { get; set; }
     }
 }
